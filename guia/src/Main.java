@@ -1,23 +1,6 @@
-import api.ColaPrioTDA;
-import api.ColaTDA;
-import api.ConjuntoTDA;
-import api.DicMultipleTDA;
 import api.EstudiantesTDA;
-import api.PilaColaParesTDA;
-import ejercicios.MetodosCola;
-import ejercicios.MetodosColaPrio;
-import ejercicios.MetodosConjunto;
-import ejercicios.MetodosDiccionario;
 import ejercicios.MetodosPila;
-import impl.PilaColaParesDinamica;
-import impl.colas.ColaEstatica1;
-import impl.colas.ColaPrioridadDinamica;
-import impl.conjunto.ConjuntoDinamico;
-import impl.conjunto.ConjuntoEstatico;
-import impl.dic.DicMultipleDinamico;
 import impl.simulacros.EstudiantesDinamico;
-
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws Exception {
