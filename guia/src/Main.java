@@ -1,38 +1,50 @@
 import api.EstudiantesTDA;
+import ejercicios.MetodosCola;
+import ejercicios.MetodosConjunto;
+import ejercicios.MetodosDiccionario;
 import ejercicios.MetodosPila;
 import impl.simulacros.EstudiantesDinamico;
+import parcial.GestorDeReservas;
+import parcial.GestorDeReservasTDA;
 
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        MetodosPila m = new MetodosPila();
-        EstudiantesTDA l = new EstudiantesDinamico();
+        GestorDeReservasTDA gestor = new GestorDeReservas();
+        MetodosDiccionario dm = new MetodosDiccionario();
+        MetodosConjunto conjunto = new MetodosConjunto();
+        MetodosCola cola = new MetodosCola();
+        MetodosPila pila = new MetodosPila();
 
-        l.agregarAlumno(2002, 8);
-        l.agregarAlumno(2002, 6);
-        l.agregarAlumno(2002, 10);
+        gestor.Inicializar();
 
-        l.agregarAlumno(1999, 4);
-        l.agregarAlumno(1999, 2);        
-        
-        l.agregarAlumno(2001, 4);
-        l.agregarAlumno(2001, 2);
+        // se valida su creacion en los prints de los metodos
+        gestor.agregarReserva(1, 99, 333, 4444);
+        gestor.agregarReserva(2, 99, 777, 5555);
+        gestor.agregarReserva(3, 99, 333, 4444);
 
-        l.eliminarAlumno(1999);
+        // al no encontrar al pasjero con id 3 en listarPorFecha() se valida que fue borrado
+        gestor.eliminarReserva(3);
 
-        System.out.print("notas 2002: ");
-        m.imprimirPila(l.notas(2002));
+        gestor.actualizarAsiento(1, 111);
 
-        System.out.print("promedio 2002: ");
-        System.out.println(l.promedioNotasAlumno(2002));
+        gestor.actualizarVuelo(1, 88);
 
-        System.out.print("aprobo 2002: ");
-        System.out.println(l.aprobo(2002));
+        gestor.actualizarFecha(1, 2222);
 
-        System.out.print("aprobo 2001: ");
-        System.out.println(l.aprobo(2001));
-        
-        l.imprimir();
+        // devuelve el puntero de su respectiva reserva
+        System.out.println("obtener reserva: ");
+        System.out.println(gestor.obtenerReserva(1));
+
+        // parece que devuelve un vector pero solo es decoracion que uso en el metodo que cree.
+        System.out.println("reservas por fecha:");
+        conjunto.imprimir(gestor.reservasPorFecha(5555));
+
+        System.out.println("listar por vuelo: ");
+        dm.imprimir(gestor.listarPorVuelo());
+
+        System.out.println("listar por fecha: ");
+        dm.imprimir(gestor.listarPorVuelo());
     }
 }
 
